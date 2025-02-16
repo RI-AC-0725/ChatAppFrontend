@@ -1,3 +1,7 @@
+<script setup>
+import roomListView from "../components/RoomListView.vue";
+</script>
+
 <template>
   <div>
     <h1>オープンチャットアプリ</h1>
@@ -7,6 +11,7 @@
   <div>
     <router-link to="/RoomCreate">部屋を作成</router-link>
   </div>
+  <roomListView></roomListView>
 </template>
 
 <script>
