@@ -4,10 +4,9 @@ const rooms = JSON.parse(localStorage.getItem("rooms")) || [];
 </script>
 
 <template>
-  <h1>各部屋を表示</h1>
-  <table border="1" v-for="room in rooms" :key="room.number">
-    <tr>
-      <td>{{ room.name }}</td>
-    </tr>
-  </table>
+    <h1>該当するカテゴリーの部屋を表示</h1>
+    <div v-for="room in rooms" :key="room.number">
+    <li>{{ room.name }} </li>
+    <hr>
+  </div>
 </template>

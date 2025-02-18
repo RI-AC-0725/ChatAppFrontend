@@ -9,7 +9,7 @@ const message = ref("");
 
 
 
-//日付取得 yyyy/mm/dd-00:00:00
+//日付取得 yyyy/MM/dd-HH:mm:ss
 const date = new Date();
 day = date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate() + "-" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
 

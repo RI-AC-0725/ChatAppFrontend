@@ -2,7 +2,7 @@
 import { ref } from "vue";
 const title = ref("");
 const msg = ref(true);
-
+const category =ref("");
 
 //作成ボタン
 function onCreatebtn() {
@@ -10,9 +10,13 @@ function onCreatebtn() {
   const room = {
   number: rooms.length + 1,
   name: title.value,
+  tag: category.value,
   };
   rooms.push(room);
   localStorage.setItem("rooms", JSON.stringify(rooms));
+  
+  //itemsに最初の投稿を格納
+  const items = JSON.parse(localStorage.getItem("items")) || [];
 };
 function isOnclick() {
   msg.value = !msg.value;
@@ -22,7 +26,10 @@ function isOnclick() {
   <div>
     <router-link to="/">メイン画面へ戻る</router-link>
     <h1>チャットルームを作成する</h1>
-    <h2>部屋の名前：<input type="text" v-model="title"/></h2>
+    <h2>
+      部屋の名前：<input type="text" v-model="title"/><br>
+      カテゴリー：<input type="text" v-model="category"/>
+    </h2>
   </div>
   
   <form @submit="onCreatebtn">
