@@ -3,6 +3,11 @@ import { ref } from "vue";
 const title = ref("");
 const msg = ref(true);
 const category =ref("");
+let day = "";
+
+//日付取得 yyyy/MM/dd-HH:mm:ss
+const date = new Date();
+day = date.getFullYear() + "/" + (date.getMonth() + 1) + "/" + date.getDate() + "-" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
 
 //作成ボタン
 function onCreatebtn() {
@@ -17,7 +22,19 @@ function onCreatebtn() {
   
   //itemsに最初の投稿を格納
   const items = JSON.parse(localStorage.getItem("items")) || [];
+  const newItem = {
+    roomNumber: rooms.length,
+    tweet: {
+      number: items.length + 1,
+      name: "管理者",
+      day: day,
+      message: title.value + "の部屋が作成されました。",
+    }
+  }
+  items.push(newItem);
+  localStorage.setItem("items", JSON.stringify(items));
 };
+
 function isOnclick() {
   msg.value = !msg.value;
 };

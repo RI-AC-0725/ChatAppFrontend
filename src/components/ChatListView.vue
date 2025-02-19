@@ -19,14 +19,20 @@ export default {
 <script setup>
 //ローカルストレージからデータを取得
 const items = JSON.parse(localStorage.getItem("items")) || [];
+
 </script>
 
 <template>
+  <!-- tweetsを表示する 
   <div v-for="item in items" :key="item.number">
     <li>{{ item.number }}.{{ item.name }} {{ item.day }}</li>
     <li >{{ item.message }}</li>
-    <hr>
-  </div>
+    <hr>    
+  </div>-->
+  <li>{{ items[0].roomNumber }}</li>
+  <li>{{ items[0].tweet.number }}.{{ items[0].tweet.name }}{{ items[0].tweet.day }}</li>
+  <li>{{ items[0].tweet.message }}</li>
+  <hr>
 </template>
 
 <style>
